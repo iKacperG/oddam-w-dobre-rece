@@ -1,0 +1,11 @@
+.main-container{
+  display:flex;
+  flex-direction: column;
+
+}
+
+.auth-container{
+  display: flex;
+  background:red;
+  justify-content: flex-end;
+}
