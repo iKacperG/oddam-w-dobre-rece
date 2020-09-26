@@ -23,7 +23,7 @@ const Home = () => {
             <div className='sections-container'>
                 <Achievements/>
                 <EasySteps/>
-                <AboutUs/>
+                <AboutUs name='AboutUs'/>
                 <Collaborators/>
                 <ContactUs/>
                 <Footer/>

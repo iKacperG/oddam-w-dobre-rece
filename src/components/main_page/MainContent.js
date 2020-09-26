@@ -10,14 +10,14 @@ const MainContent = () => {
         <div className='content-center'>
             <div className='content-bg'/>
             <main>
-                <h1>
+                <h1 className='content-header'>
                     Zacznij pomagać! <br/>
                     Oddaj niechciane rzeczy w zaufane ręce
                 </h1>
                 <img src={decoration}/>
                 <div className='button-group'>
-                    <GiveButton name='Oddaj rzeczy' to='oddaj'/>
-                    <GiveButton name='Zorganizuj zbiórkę' to='zorganizuj'/>
+                    <GiveButton name='Oddaj rzeczy' to='logowanie'/>
+                    <GiveButton name='Zorganizuj zbiórkę' to='logowanie'/>
                 </div>
             </main>
         </div>

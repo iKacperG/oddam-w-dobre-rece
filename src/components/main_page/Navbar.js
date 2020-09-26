@@ -10,11 +10,11 @@ const Navbar = () => {
     return (
         <nav className='nav-container'>
             <ul className='nav-list'>
-                <Anchor name='Start' whereTo='MainContent'/>
-                <Anchor name='O co chodzi?' whereTo='EasySteps'/>
-                <Anchor name='O nas' whereTo='AboutUs'/>
-                <Anchor name='Fundacje i organizacje' whereTo='Collaborators'/>
-                <Anchor name='Kontakt' whereTo='ContactUs'/>
+                <Anchor typed='Start' whereTo='content-header'/>
+                <Anchor typed='O co chodzi?' whereTo='achievements-container'/>
+                <Anchor typed='O nas' whereTo='about-container'/>
+                <Anchor typed='Fundacje i organizacje' whereTo='collab-container'/>
+                <Anchor typed='Kontakt' whereTo='contact-container'/>
             </ul>
         </nav>
     )
