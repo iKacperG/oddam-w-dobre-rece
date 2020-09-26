@@ -12,20 +12,24 @@ import Container from "./Container";
 
 const Home = () => {
     return (
+        <>
         <div className='main-container'>
-
+            <div className='main-center'>
                 <AuthLook/>
                 <Navbar/>
+            </div>
                 <MainContent/>
+        </div>
+            <div className='sections-container'>
                 <Achievements/>
                 <EasySteps/>
                 <AboutUs/>
                 <Collaborators/>
                 <ContactUs/>
                 <Footer/>
+            </div>
+            </>
 
-
-        </div>
     )
 }
 

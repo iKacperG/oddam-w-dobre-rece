@@ -1,0 +1,42 @@
+@use 'sass:color';
+
+.achievements-container {
+  display: flex;
+  height: 30vh;
+  background: black url("../../../assets/3_Columns Background.png");
+  justify-content: center;
+  align-items: center;
+
+  article {
+    margin: 0 5rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100%;
+
+    h2, h3, p {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: $text-main-color;
+      padding: 0.5rem;
+
+    }
+
+    h2 {
+      font-size: 3rem;
+      color: $warning-secondary-color;
+    }
+
+    h3 {
+      letter-spacing: -1px;
+      text-transform: uppercase;
+      font-size: 1rem;
+    }
+
+    p {
+      letter-spacing: -1px;
+      font-size: 0.8rem;
+    }
+  }
+}

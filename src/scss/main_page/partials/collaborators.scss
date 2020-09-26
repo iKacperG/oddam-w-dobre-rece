@@ -1,0 +1,22 @@
+.collab-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height:90vh;
+
+  h2 {
+    color: $text-main-color;
+    margin:1rem;
+  }
+
+  img{
+    width:10%;
+  }
+}
+
+
+
+.pholder{
+  height:65%;
+}
