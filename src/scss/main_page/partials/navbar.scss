@@ -37,6 +37,7 @@
 }
 
 .nav-list-element {
+
   margin: 1rem;
   padding: 0.5rem;
   color: $text-main-color;
@@ -46,5 +47,6 @@
 
   &:hover {
     border: 1px solid $text-main-color;
+
   }
 }
