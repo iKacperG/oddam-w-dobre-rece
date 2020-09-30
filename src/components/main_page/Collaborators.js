@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import decoration from '../../assets/Decoration.svg';
 import ActualColab from "./ActualColab";
+import firebase from '../firebase';
+
 
 const Collaborators = () => {
+
 
     return (
         <div className='collab-container'>

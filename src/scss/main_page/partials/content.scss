@@ -58,8 +58,9 @@
   letter-spacing: -3px;
   &:hover{
     cursor: pointer;
-    border-right: 2px solid $text-main-color;
-    border-bottom: 2px solid $text-main-color;
+    //border-right: 1px solid $text-main-color;
+    box-shadow: 2px 2px $text-secondary-color;
+    //border-bottom: 1px solid $text-main-color;
     transition: 0.2s;
   }
 }
