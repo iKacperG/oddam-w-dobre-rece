@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import boxImage from "../../assets/Home-Hero-Image.jpg";
-import decoration from "../../assets/Decoration.svg";
+import boxImage from "../../../assets/Home-Hero-Image.jpg";
+import decoration from "../../../assets/Decoration.svg";
 import GiveButton from "./GiveButton";
 
 const MainContent = () => {

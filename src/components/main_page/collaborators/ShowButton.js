@@ -1,11 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 const ShowButton = (props) => {
 
     const handleLiChange = () => {
-        props.target('flex')
-        props.deselect('none');
-        props.deselect2('none');
+        props.setActualList(props.target)
+        props.setActualText(props.targetText);
     }
     return <button onClick={handleLiChange} className='show-button'>{props.name}</button>
 }

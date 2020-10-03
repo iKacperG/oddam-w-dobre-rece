@@ -1,14 +1,14 @@
 import React from 'react';
-import AuthLook from "./AuthLook";
-import Navbar from "./Navbar";
-import MainContent from "./MainContent";
-import Achievements from "./Achievements";
-import EasySteps from "./EasySteps";
-import AboutUs from "./AboutUs";
-import Collaborators from "./Collaborators";
-import ContactUs from "./ContactUs";
-import Footer from "./Footer";
-import Container from "./Container";
+import AuthLook from "./navbar/AuthLook";
+import Navbar from "./navbar/Navbar";
+import MainContent from "./main_content/MainContent";
+import Achievements from "./column_sections/Achievements";
+import EasySteps from "./column_sections/EasySteps";
+import AboutUs from "./column_sections/AboutUs";
+import Collaborators from "./collaborators/Collaborators";
+import ContactUs from "./column_sections/ContactUs";
+import Footer from "./footer/Footer";
+
 
 const Home = () => {
     return (

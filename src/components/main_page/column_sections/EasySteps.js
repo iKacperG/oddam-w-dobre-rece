@@ -1,11 +1,11 @@
 import React from 'react';
 
-import decoration from "../../assets/Decoration.svg";
-import shirt from "../../assets/Icon-1.svg";
-import bag from "../../assets/Icon-2.svg";
-import glass from "../../assets/Icon-3.svg";
-import trading from "../../assets/Icon-4.svg";
-import GiveButton from "./GiveButton";
+import decoration from "../../../assets/Decoration.svg";
+import shirt from "../../../assets/Icon-1.svg";
+import bag from "../../../assets/Icon-2.svg";
+import glass from "../../../assets/Icon-3.svg";
+import trading from "../../../assets/Icon-4.svg";
+import GiveButton from "../main_content/GiveButton";
 
 const EasySteps = () => {
 

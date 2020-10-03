@@ -1,0 +1,122 @@
+import React, {useEffect, useState} from 'react';
+import firebase from "../../firebase";
+import ShowButton from "./ShowButton";
+import ActualList from "./ActualList";
+
+const ActualColab = () => {
+
+    const [collaborators, setCollaborators] = useState([])
+
+    const foundText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.'
+    const organizationText = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa cupiditate eaque ex excepturi, fugit itaque natus optio quasi ullam veniam.'
+    const localText = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque dolorum eaque facilis harum hic libero magnam quod sit unde voluptatum.'
+
+    const db = firebase.firestore();
+
+    const [collabsPerPage, setCollabsPerPage] = useState(3)
+    const [currentPage, setCurrentPage] = useState(1)
+
+    const handlePageClick = (event) => {
+        console.log(currentPage); //1
+        console.log(event.target.id); //2
+        setCurrentPage(Number(event.target.id));
+        console.log(currentPage); //1
+
+
+    }
+
+    const listMapper = (promiseData) => {
+
+            const indexOfLastCollab = currentPage * collabsPerPage;
+            const indexOfFirstCollab = indexOfLastCollab - collabsPerPage;
+            const currentCollabs = promiseData?.slice(indexOfFirstCollab, indexOfLastCollab);
+
+
+        const pageNumbers = [];
+            for (let i = 1; i <= Math.ceil(promiseData?.length / collabsPerPage); i++) {
+                pageNumbers.push(i);
+            }
+
+
+
+            const renderPageNumbers = pageNumbers.map(number => {
+                return (
+                    <li className='page-button'
+                        key={number}
+                        id={number}
+                        onClick={handlePageClick}>
+                        {number}
+                    </li>
+                );
+            });
+            const renderList = currentCollabs?.map(el => {
+                return <ul className='collab-list foundlist '>
+                    <li>
+                        <div className='collab-group'>
+                            <h3 className='collab-name'>{el.name}</h3>
+                            <h4 className='collab-desc'>{el.description}</h4>
+                        </div>
+                        <p className='collab-goods'>{el.goods}</p>
+                    </li>
+                </ul>
+            })
+            return <>
+                <div className='collab-page-container'>
+                    <ul className='collab-list'>
+                        {renderList}
+                    </ul>
+                    <ul className='page-numbers'>
+                        {renderPageNumbers}
+                    </ul>
+                </div>
+            </>
+        }
+
+
+    const [actualList, setActualList] = useState(undefined)
+    const [actualText, setActualText] = useState(foundText)
+
+    useEffect(() => {
+        db.collection('collaborators').doc('pShwupzxbacMdftKRhri').get()
+            .then(res => {
+
+                return res.data();
+
+            })
+            .then(res => {
+                setCollaborators(res)
+            })
+            .catch(err => console.log('failed' + err))
+
+    }, [])
+
+    useEffect(() => {
+
+            setActualList(listMapper(collaborators?.foundations))
+
+    }, [collaborators])
+
+    return (
+        <div className='collab-container'>
+            <div className='collab-center'>
+                <div className='button-group'>
+                    <ShowButton name='Fundacjom' setActualList={setActualList}
+                                target={listMapper(collaborators?.foundations)} setActualText={setActualText}
+                                targetText={foundText}/>
+                    <ShowButton name='Organizacjom pozarządowym' setActualList={setActualList}
+                                target={listMapper(collaborators?.organizations)} setActualText={setActualText}
+                                targetText={organizationText}/>
+                    <ShowButton name='Lokalnym zbiórkom' setActualList={setActualList}
+                                target={listMapper(collaborators?.locals)} setActualText={setActualText}
+                                targetText={localText}/>
+                </div>
+                <div className='collab-main-desc'>{actualText}</div>
+
+                <ActualList render={actualList}/>
+
+            </div>
+        </div>
+    )
+}
+
+export default ActualColab;
