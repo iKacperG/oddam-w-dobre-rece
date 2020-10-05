@@ -5,7 +5,7 @@ const ActualList = (props) => {
 
     return (
         <>
-                    {props.render}
+            {props.render}
         </>
     )
 }

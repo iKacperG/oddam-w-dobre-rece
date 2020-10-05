@@ -6,7 +6,7 @@ import Achievements from "./column_sections/Achievements";
 import EasySteps from "./column_sections/EasySteps";
 import AboutUs from "./column_sections/AboutUs";
 import Collaborators from "./collaborators/Collaborators";
-import ContactUs from "./column_sections/ContactUs";
+import ContactUs from "./contact/ContactUs";
 import Footer from "./footer/Footer";
 
 

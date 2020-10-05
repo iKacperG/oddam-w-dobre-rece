@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import firebase from "../../firebase";
 import ShowButton from "./ShowButton";
 import ActualList from "./ActualList";
+import PageButton from "./PageButton";
 
 const ActualColab = () => {
 
@@ -16,61 +17,55 @@ const ActualColab = () => {
     const [collabsPerPage, setCollabsPerPage] = useState(3)
     const [currentPage, setCurrentPage] = useState(1)
 
-    const handlePageClick = (event) => {
-        console.log(currentPage); //1
-        console.log(event.target.id); //2
-        setCurrentPage(Number(event.target.id));
-        console.log(currentPage); //1
 
+    useEffect(() => {
 
-    }
+        setActualList(listMapper(collaborators?.organizations))
+
+    }, [currentPage])
 
     const listMapper = (promiseData) => {
 
-            const indexOfLastCollab = currentPage * collabsPerPage;
-            const indexOfFirstCollab = indexOfLastCollab - collabsPerPage;
-            const currentCollabs = promiseData?.slice(indexOfFirstCollab, indexOfLastCollab);
+        const indexOfLastCollab = currentPage * collabsPerPage;
+        const indexOfFirstCollab = indexOfLastCollab - collabsPerPage;
+        const currentCollabs = promiseData?.slice(indexOfFirstCollab, indexOfLastCollab);
 
 
         const pageNumbers = [];
-            for (let i = 1; i <= Math.ceil(promiseData?.length / collabsPerPage); i++) {
-                pageNumbers.push(i);
-            }
-
-
-
-            const renderPageNumbers = pageNumbers.map(number => {
-                return (
-                    <li className='page-button'
-                        key={number}
-                        id={number}
-                        onClick={handlePageClick}>
-                        {number}
-                    </li>
-                );
-            });
-            const renderList = currentCollabs?.map(el => {
-                return <ul className='collab-list foundlist '>
-                    <li>
-                        <div className='collab-group'>
-                            <h3 className='collab-name'>{el.name}</h3>
-                            <h4 className='collab-desc'>{el.description}</h4>
-                        </div>
-                        <p className='collab-goods'>{el.goods}</p>
-                    </li>
-                </ul>
-            })
-            return <>
-                <div className='collab-page-container'>
-                    <ul className='collab-list'>
-                        {renderList}
-                    </ul>
-                    <ul className='page-numbers'>
-                        {renderPageNumbers}
-                    </ul>
-                </div>
-            </>
+        for (let i = 1; i <= Math.ceil(promiseData?.length / collabsPerPage); i++) {
+            pageNumbers.push(i);
         }
+
+
+        let renderPageNumbers = pageNumbers.map(number => {
+            return (
+                <PageButton number={number} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
+            );
+        });
+
+
+        const renderList = currentCollabs?.map(el => {
+            return <ul className='collab-list foundlist '>
+                <li>
+                    <div className='collab-group'>
+                        <h3 className='collab-name'>{el.name}</h3>
+                        <h4 className='collab-desc'>{el.description}</h4>
+                    </div>
+                    <p className='collab-goods'>{el.goods}</p>
+                </li>
+            </ul>
+        })
+        return <>
+            <div className='collab-page-container'>
+                <ul className='collab-list'>
+                    {renderList}
+                </ul>
+                <ul className='page-numbers'>
+                    {renderPageNumbers}
+                </ul>
+            </div>
+        </>
+    }
 
 
     const [actualList, setActualList] = useState(undefined)
@@ -92,23 +87,26 @@ const ActualColab = () => {
 
     useEffect(() => {
 
-            setActualList(listMapper(collaborators?.foundations))
+        setActualList(listMapper(collaborators?.foundations))
 
     }, [collaborators])
+    useEffect(() => {
+
+    }, [currentPage])
 
     return (
         <div className='collab-container'>
             <div className='collab-center'>
                 <div className='button-group'>
-                    <ShowButton name='Fundacjom' setActualList={setActualList}
+                    <ShowButton name='Fundacjom' setActualList={setActualList} currentPage={currentPage}
                                 target={listMapper(collaborators?.foundations)} setActualText={setActualText}
-                                targetText={foundText}/>
-                    <ShowButton name='Organizacjom pozarządowym' setActualList={setActualList}
+                                targetText={foundText} setCurrentPage={setCurrentPage}/>
+                    <ShowButton name='Organizacjom pozarządowym' setActualList={setActualList} currentPage={currentPage}
                                 target={listMapper(collaborators?.organizations)} setActualText={setActualText}
-                                targetText={organizationText}/>
-                    <ShowButton name='Lokalnym zbiórkom' setActualList={setActualList}
+                                targetText={organizationText} setCurrentPage={setCurrentPage}/>
+                    <ShowButton name='Lokalnym zbiórkom' setActualList={setActualList} currentPage={currentPage}
                                 target={listMapper(collaborators?.locals)} setActualText={setActualText}
-                                targetText={localText}/>
+                                targetText={localText} setCurrentPage={setCurrentPage}/>
                 </div>
                 <div className='collab-main-desc'>{actualText}</div>
 
