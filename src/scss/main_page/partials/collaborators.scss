@@ -1,0 +1,112 @@
+.collab-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+
+  h2 {
+    color: $text-main-color;
+    padding: 2rem;
+  }
+
+  img {
+    width: 20%;
+    padding: 1rem;
+  }
+}
+
+
+.collab-container {
+  height: 65%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .collab-center {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .show-button {
+      color: $text-main-color;
+      background: #fff;
+      outline: none;
+      padding: 1rem;
+      margin: 1rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+
+      &:focus {
+        border: 1px solid $text-secondary-color;
+      }
+    }
+
+    .collab-list {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      li {
+        display: flex;
+        padding: 2rem 0;
+        justify-content: space-between;
+        border-bottom: 2px solid $text-secondary-color;
+        width: 100%;
+        color: $text-main-color
+      }
+    }
+
+    .collab-main-desc {
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      width: 70%;
+      height: 20vh;
+      text-align: center;
+      align-self: center;
+    }
+  }
+}
+
+.collab-name {
+  font-size: 1.3rem;
+}
+
+.collab-desc {
+  font-size: 1rem;
+}
+
+.collab-goods {
+  font-size: 1rem;
+}
+
+.flex-change {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.collab-page-container {
+  width: 80%;
+}
+
+.page-numbers {
+  display: flex;
+
+}
+
+.page-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background: $background-color;
+  font-weight: bold;
+  color: $text-main-color;
+  width: 2rem;
+  height: 2rem;
+}

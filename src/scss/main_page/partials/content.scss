@@ -1,0 +1,67 @@
+.content-center {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  transform: translate(-5vw);
+
+
+  .content-bg {
+    background: url("../../../assets/Home-Hero-Image.jpg") no-repeat right/cover;
+    width: 50%;
+    height: 100vh;
+
+  }
+
+
+  main {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    h1 {
+      color: $text-main-color;
+      letter-spacing: -3px;
+      line-height: 3rem;
+    }
+
+    img {
+      max-width: 100%;
+      width: 30%;
+      padding: 1rem;
+    }
+
+    .button-group {
+      display: flex;
+      margin: 2rem;
+
+
+
+    }
+  }
+}
+
+.link-button {
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: $text-secondary-color;
+  padding: 2rem 5rem;
+  margin: 1rem;
+  border: 1px solid $text-secondary-color;
+  font-size: 1.5rem;
+  letter-spacing: -3px;
+  &:hover{
+    cursor: pointer;
+    //border-right: 1px solid $text-main-color;
+    box-shadow: 2px 2px $text-secondary-color;
+    //border-bottom: 1px solid $text-main-color;
+    transition: 0.2s;
+  }
+}
+

@@ -1,11 +1,20 @@
-.main-container{
-  display:flex;
-  flex-direction: column;
-
-}
-
-.auth-container{
+.main-container {
   display: flex;
-  background:red;
-  justify-content: flex-end;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width:100%;
+  position: relative;
+
+
 }
+
+.main-center {
+  width: 90%;
+
+}
+
+.d-none{
+  display: none;
+}
+

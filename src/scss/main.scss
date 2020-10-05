@@ -3,3 +3,12 @@
 @import './settings/colors';
 
 @import './main_page/base';
+
+@import './main_page/partials/navbar';
+@import './main_page/partials/content';
+@import './main_page/partials/achievements';
+@import './main_page/partials/steps';
+@import './main_page/partials/aboutus';
+@import './main_page/partials/collaborators';
+@import 'main_page/partials/contactus';
+@import 'main_page/partials/footer';
