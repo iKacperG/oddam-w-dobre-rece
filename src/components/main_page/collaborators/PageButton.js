@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 
-const PageButton = ({number, currentPage,setCurrentPage}) => {
+const PageButton = ({number,setCurrentPage}) => {
 
     const handlePageClick = (event) => {
 
@@ -8,9 +8,6 @@ const PageButton = ({number, currentPage,setCurrentPage}) => {
 
     }
 
-    useEffect(()=>{
-
-    },[currentPage])
 
 
     return (
