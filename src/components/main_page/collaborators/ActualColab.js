@@ -44,9 +44,9 @@ const ActualCollab = () => {
         }
 
         let renderPageNumbers = pageNumbers.map(number => {
-
-            return <PageButton number={number} setCurrentPage={setCurrentPage}/>
-
+            if (pageNumbers.length !== 1) {
+                return <PageButton number={number} setCurrentPage={setCurrentPage}/>
+            }
         });
         //------------------------WHAT TO RENDER IN LIs----------------------------------------
         const renderList = currentCollabsPage?.map(el => {
@@ -101,7 +101,8 @@ const ActualCollab = () => {
         )
 
     }
-    {/*ACTUAL OUTCOME*/}
+    {/*ACTUAL OUTCOME*/
+    }
     return loadList(actualCollabType);
 }
 
