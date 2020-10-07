@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import decoration from '../../../assets/Decoration.svg';
-import ActualColab from "./ActualColab";
 import firebase from '../../firebase';
+import ActualCollab from "./ActualColab";
 
 
 const Collaborators = () => {
@@ -11,7 +11,7 @@ const Collaborators = () => {
         <div className='collab-container'>
             <h2>Komu pomagamy?</h2>
             <img src={decoration}/>
-            <ActualColab/>
+            <ActualCollab/>
         </div>
     )
 }

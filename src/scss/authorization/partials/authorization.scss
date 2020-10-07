@@ -1,0 +1,79 @@
+
+.auth-page-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 70%;
+
+  h1 {
+    margin: 2rem;
+  }
+}
+
+.auth-form {
+  background: $background-color;
+  height: 60%;
+  width: 40%;
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+
+  .auth-page-input-group {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 80%;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 1rem 0;
+    outline: none;
+    border: none;
+    font-size: 1.2rem;
+    background: $background-color;
+    border-bottom: 2px solid $text-main-color;
+  }
+
+  label {
+    width: 70%;
+
+  }
+
+}
+
+.auth-page-button-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.login-button {
+  background: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.auth-page-logout {
+  text-align: center;
+}
+
+.main-page-link {
+
+
+  margin: 1rem;
+  padding: 0.5rem;
+  color: $text-secondary-color;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid $text-secondary-color;
+  text-decoration: none;
+}
