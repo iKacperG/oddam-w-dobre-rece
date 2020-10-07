@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import AuthLook from "./navbar/AuthLook";
 import Navbar from "./navbar/Navbar";
 import MainContent from "./main_content/MainContent";
@@ -11,6 +11,7 @@ import Footer from "./footer/Footer";
 
 
 const Home = () => {
+
     return (
         <>
         <div className='main-container'>

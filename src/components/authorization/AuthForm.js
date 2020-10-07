@@ -1,10 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React, {createContext, useEffect, useState} from 'react';
 import Navbar from "../main_page/navbar/Navbar";
 import AuthLook from "../main_page/navbar/AuthLook";
 import decoration from "../../assets/Decoration.svg"
 import Register from "../main_page/navbar/Register";
 import Login from "../main_page/navbar/Login";
 import {Link} from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import * as firebase from "firebase";
 
 const AuthForm = (props) => {
 
@@ -16,6 +18,11 @@ const AuthForm = (props) => {
     const [wrongPassword2, setWrongPassword2] = useState('')
     const [wrongEmail, setWrongEmail] = useState('')
     const [wrongForm, setWrongForm] = useState('')
+    const [wrongCredentials, setWrongCredentials] = useState('')
+
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+    const history = useHistory();
 
     const passwordCheck = () => {
 
@@ -62,26 +69,48 @@ const AuthForm = (props) => {
 
     const validateRegister = (event) => {
         event.preventDefault();
+        emailCheck();
+        passwordCheck();
+        password2Check()
         if(emailCheck()===false || passwordCheck()===false || password2Check()===false) {
-            emailCheck();
-            passwordCheck();
-            password2Check();
+
+            return false
+
         }else{
-            setWrongEmail('')
-            setWrongPassword('')
-            setWrongPassword2('')
+            auth.createUserWithEmailAndPassword(emailValue,passwordValue)
+
+                .then(()=>{
+                    db.collection('users').doc(auth.currentUser.uid).set({email:emailValue})
+                        .catch(err=>err);
+                    history.push('/')
+                })
             return true
         }
     };
+
 
     const validateLogin = (event) => {
 
         event.preventDefault();
         emailCheck();
         passwordCheck();
-        if(emailCheck()===false || passwordCheck()===false){
+        if(emailCheck() && passwordCheck()){
             return false
+
         }else{
+            auth.signInWithEmailAndPassword(emailValue,passwordValue)
+                .then(() =>{auth.onAuthStateChanged((userAuth) => {
+                    if(userAuth){
+                        setWrongCredentials('');
+                        history.push('/');
+                        console.log(userAuth+'logged');
+
+
+                    }else{
+                        console.log('fail')
+                    }
+
+                })}).catch(err=>setWrongCredentials('Wrong credentials'));
 
             return true
         }
@@ -101,6 +130,7 @@ const AuthForm = (props) => {
                         <label>Hasło</label>
                         <input type='password' onChange={handlePasswordInput}/>
                         <p className='tooltip-wrong'>{wrongPassword}</p>
+                        <p className='tooltip-wrong'>{wrongCredentials}</p>
                     </div>
                 </form>
                 <div className='auth-page-button-group'>
@@ -113,6 +143,7 @@ const AuthForm = (props) => {
             </div>
         )
     } else if (props.type === 'register') {
+
         return (<div className='auth-page-center'>
                 <h1>Zarejestruj się</h1>
                 <img src={decoration}/>

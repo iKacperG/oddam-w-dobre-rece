@@ -4,6 +4,7 @@ import AuthLook from "../main_page/navbar/AuthLook";
 import Navbar from "../main_page/navbar/Navbar";
 
 const RegisterPage = () => {
+
     return (
         <div className='main-container'>
             <div className='main-center'>
