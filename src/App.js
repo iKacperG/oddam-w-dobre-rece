@@ -8,6 +8,7 @@ import RegisterPage from "./components/authorization/RegisterPage";
 import LoginPage from "./components/authorization/LoginPage";
 import LogoutPage from "./components/authorization/LogoutPage";
 import AuthProvider from "./providers/AuthProvider";
+import GivePage from "./components/oddaj/GivePage";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
                     <Route exact path='/rejestracja' component={RegisterPage}/>
                     <Route exact path='/logowanie' component={LoginPage}/>
                     <Route exact path='/wylogowano' component={LogoutPage}/>
+                    <Route exact path='/oddaj-rzeczy' component={GivePage}/>
                 </HashRouter>
             </div>
         </AuthProvider>

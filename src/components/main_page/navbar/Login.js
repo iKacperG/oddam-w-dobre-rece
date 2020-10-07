@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import {UserContext} from "../../../providers/UserContext";
 
 const Login = () => {
-    const user = useContext(UserContext)
+    const user = useContext(UserContext);
     if(user!==null){
      return   <Link to='/oddaj-rzeczy' className='auth-button'>Oddaj rzeczy</Link>
     }
