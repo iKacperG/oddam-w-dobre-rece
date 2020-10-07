@@ -108,6 +108,7 @@ const ActualCollab = () => {
 
 export default ActualCollab;
 
+//------------------OLD VERSION--------------------------------------
 
 // import React, {useEffect, useState} from 'react';
 // import firebase from "../../firebase";

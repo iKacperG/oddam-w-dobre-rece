@@ -31,7 +31,7 @@ const EasySteps = () => {
                     <p>kurier przyjedzie w dogodnym terminie</p>
                 </article>
             </section>
-            <GiveButton name='Oddaj rzeczy' to='oddaj'/>
+            <GiveButton name='Oddaj rzeczy' to='logowanie'/>
         </div>
     )
 }
